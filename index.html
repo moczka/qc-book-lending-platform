@@ -40,24 +40,32 @@
         <main id="content" class="Wrapper">
             <article class="ArticleSection">
                 <h3 class="ArticleSection-title">Search Course Materials</h3>
-                    <div class="ArticleSection-description">
-                        <div>
-                            <p class="ArticleSection-paragraph">Use the tools below to search for course materials such as books, access codes and other materials. You can filter by course id and availability.</p>
-                            <form class="SearchTool" action="/search" method="GET">
-                                <input type="text" name="q" placeholder="Search for books">
-                                <button class="SearchTool-submitBtn" type="submit">Search</button>
-                            </form>
-                        </div>
-                        <div id="searchResults"></div>
-                        <div class="CourseMaterialCard">
+                    <p class="ArticleSection-paragraph">Use the tools below to search for course materials such as books, access codes and other materials. You can filter by course id and availability.</p>
+                    <form class="SearchTool">
+                        <input class="SearchTool-inputField" id="SearchTool-inputField" required type="text" placeholder="Search for books">
+                        <button id="SearchTool-submitBtn" class="SearchTool-submitBtn">Search</button>
+                    </form>
+                    <fieldset class="SearchTool-results" id="searchResults"></fieldsets>
+                    <!--
+                    <div class="CourseMaterialCard">
+                        <input class="CourseMaterialCard-input" type="checkbox" id="card1" name="selection" value="option1">
+                        <label for="card1" class="CourseMaterialCard-wrapper">
                             <div class="CourseMaterialCard-image">
-                                <img class="CourseMaterialCard-bookImage" />
+                                <img class="CourseMaterialCard-bookImage" src="media/book-thumbnail-placeholder.jpg"/>
                             </div>
-                            <div class="CourseMaterialCard-description"></div>
-                            <div class="CourseMaterialCard-status"></div>
-                            <div class="CourseMaterialCard-additionalInfo"></div>
-                        </div>
+                            <div class="CourseMaterialCard-content">
+                                <div class="CourseMaterialCard-description">
+                                    <p><span class="CourseMaterialCard-label">Title:</span>Some title</p>
+                                    <p><span class="CourseMaterialCard-label">Edition:</span></p>
+                                    <p><span class="CourseMaterialCard-label">Authors:</span></p>
+                                </div>
+                                <div class="CourseMaterialCard-status"></div>
+                                <div class="CourseMaterialCard-courseLabel"></div>
+                                <div class="CourseMaterialCard-additionalInfo"></div>
+                            </div>
+                        </label>
                     </div>
+                -->
             </article>
             <article class="ArticleSection">
                 <h3 class="ArticleSection-title">Our Expertise</h3>

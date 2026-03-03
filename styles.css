@@ -229,7 +229,6 @@ a {
   margin: 36px 0;
 }
 .ArticleSection-paragraph {
-  text-indent: 1em;
   margin-bottom: 8px;
 }
 .ArticleSection-title, .Highlight-title {
@@ -315,12 +314,22 @@ a {
 /* Course Material Search Tool */
 .SearchTool {
   display: flex;
+  flex-wrap: nowrap;
+  margin: 16px 0;
+}
+.SearchTool-results {
+  border: none;
+  padding: 0;
+}
+.SearchTool-inputField {
+  flex-grow: 1;
 }
 .SearchTool-submitBtn {
   padding: 12px;
   color: var(--primary-white);
   background-color: var(--brandColor-primary-shade1);
   border: 1px solid var(--brandColor-primary);
+  flex-grow: 0;
 }
 .SearchTool-submitBtn:hover, .SearchTool-submitBtn:active {
   background-color: var(--brandColor-primary);
@@ -328,7 +337,53 @@ a {
 
 /* Course Material Tile */
 .CourseMaterialCard {
+
+}
+.CourseMaterialCard-input {
+  position: absolute;
+  opacity: 0;
+}
+.CourseMaterialCard-input:checked + .CourseMaterialCard-wrapper {
+  border: 3px solid var(--brandColor-primary);
+}
+.CourseMaterialCard-wrapper {
   display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 12px;
+  border: 1px solid var(--brandColor-primary-shade1);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.CourseMaterialCard-image {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 120px;
+  align-self: center;
+}
+.CourseMaterialCard-content {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap:nowrap;
+  padding: 8px 0px;
+}
+.CourseMaterialCard-label {
+  font-weight: bold;
+  margin-right: 4px;
+}
+.CourseMaterialCard-status, .CourseMaterialCard-courseLabel, .CourseMaterialCard-additionalInfo {
+  padding-left: 16px;
+  flex-grow: 1;
+}
+.CourseMaterialCard-description {
+  padding-left: 16px;
+  flex-grow: 2;
+}
+/* Change Card styles for out of stock books */
+.CourseMaterialCard.is-outOfStock .CourseMaterialCard-wrapper {
+  cursor: initial;
+}
+.CourseMaterialCard.is-outOfStock .CourseMaterialCard-status {
+  color: red;
 }
 
 /* Footer styles */
