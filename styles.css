@@ -321,18 +321,29 @@ a {
   border: none;
   padding: 0;
 }
+.SearchTool-reserveBtn {
+  display: none;
+}
+.SearchTool-results:not(:empty) + .SearchTool-reserveBtn {
+  display: flex;
+}
 .SearchTool-inputField {
   flex-grow: 1;
 }
-.SearchTool-submitBtn {
+.SearchTool-reserveBtn, .SearchTool-submitBtn {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   padding: 12px;
   color: var(--primary-white);
   background-color: var(--brandColor-primary-shade1);
   border: 1px solid var(--brandColor-primary);
-  flex-grow: 0;
 }
-.SearchTool-submitBtn:hover, .SearchTool-submitBtn:active {
+.SearchTool-submitBtn:hover, .SearchTool-submitBtn:active, .SearchTool-reserveBtn:hover, .SearchTool-reserveBtn:active {
   background-color: var(--brandColor-primary);
+}
+.SearchTool-submitBtn {
+  flex-grow: 0;
 }
 
 /* Course Material Tile */
