@@ -41,13 +41,22 @@
             <article class="ArticleSection">
                 <h3 class="ArticleSection-title">Search Course Materials</h3>
                 <p class="ArticleSection-paragraph">Use the tools below to search for course materials such as books, access codes and other materials. You can filter by course id and availability.</p>
-                <form class="SearchTool">
-                    <input class="SearchTool-inputField" id="SearchTool-inputField" required type="text" placeholder="Search for books">
-                    <button id="SearchTool-submitBtn" class="SearchTool-submitBtn"><span class="material-symbols-outlined">search</span>Search</button>
-                </form>
-                <p id="applicationMessage" class="GenericMessage"></p>
-                <fieldset class="SearchTool-results" id="searchResults"></fieldset>
-                <button id="reserveBooksBtn" class="SearchTool-reserveBtn">Reserve Books</button>
+                <div class="ApplicationPhase" id="ApplicationSearchPhase">
+                    <form class="SearchTool">
+                        <input class="SearchTool-inputField" id="SearchTool-inputField" required type="text" placeholder="Search for books">
+                        <button id="SearchTool-submitBtn" class="ApplicationButton SearchTool-submitBtn"><span class="material-symbols-outlined">search</span>Search</button>
+                    </form>
+                    <p id="applicationMessage" class="ApplicationWideMessage"></p>
+                    <fieldset class="SearchTool-results" id="searchResults"></fieldset>
+                    <button id="reserveBooksBtn" class="ApplicationButton SearchTool-reserveBtn">Reserve Books</button>
+                </div>
+                <div class="ApplicationPhase" id="ApplicationRegistrationPhase">
+                    <button id="previousStep" class="ApplicationButton"><span class="material-symbols-outlined">arrow_back</span>Return to Results</button>
+                </div>
+                <div class="ApplicationPhase" id="ApplicationConfirmationPhase">
+                    <button id="previousStep" class="ApplicationButton">Search For More</button>
+                </div>
+
             </article>
         </main>
         <footer class="SiteFooter">s

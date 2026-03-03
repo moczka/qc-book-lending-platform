@@ -182,47 +182,6 @@ a {
   margin: 0 auto;
 }
 
-/* Intro Hero */
-.IntroHero {
-  position: relative;
-  height: 31.25vw;
-  overflow: hidden;
-}
-.IntroHero-image {
-  width: 100%;
-  height: auto;
-}
-.IntroHero-title {
-  font-size: 1.7em;
-  color: var(--secondary-grey);
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-.IntroHero-content {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 16px;
-  text-align: center;
-}
-.IntroHero-list {
-  display: flex;
-  margin-top: 12px;
-  justify-content: center;
-  list-style: none;
-}
-.IntroHero-list > li {
-  position: relative;
-  font-size: 1.2em;
-  font-weight: 300;
-  padding-right: 24px;
-}
-.IntroHero.is-centered > .IntroHero-content {
-  top: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
-}
 
 /* Introduction Articles */
 .ArticleSection {
@@ -272,44 +231,30 @@ a {
   background-color: var(--primary-blue);
 }
 
-/* Visual highlights a figure with description text */
-.Highlight {
-  margin: 48px 0;
-  align-items: center;
-}
-.Highlight-description {
-  text-align: center;
-}
-.Highlight.is-reversed {
-  flex-flow: row-reverse;
-} 
-.Highlight.is-reversed > .Highlight-image {
-  margin-left: 0;
-  margin-right: 24px;
+.ApplicationPhase {
+  display: none;
 }
 
-/* Amenities */
-.AmenitiesList {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 20px 0;
-  padding: 0;
+.ApplicationWideMessage {
+  margin: 16px 0;
+  font-weight: 500;
+  scroll-margin-top: 100px;
 }
-.AmenitiesList > li {
+.ApplicationWideMessage.is--error {
+  color: red;
+}
+.ApplicationButton {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-wrap: nowrap;
-  width: 50%;
-  margin-bottom: 8px;
+  align-items: center;
+  padding: 12px;
+  color: var(--primary-white);
+  background-color: var(--brandColor-primary-shade1);
+  border: 1px solid var(--brandColor-primary);
 }
-.AmenitiesList > li > .material-symbols-outlined {
-  font-size: 2.6em;
-  flex-shrink: 0;
-  padding-right: 8px;
+.ApplicationButton:active, .ApplicationButton:hover {
+  background-color: var(--brandColor-primary);
 }
-
 
 /* Course Material Search Tool */
 .SearchTool {
@@ -327,18 +272,7 @@ a {
 .SearchTool-inputField {
   flex-grow: 1;
 }
-.SearchTool-reserveBtn, .SearchTool-submitBtn {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  padding: 12px;
-  color: var(--primary-white);
-  background-color: var(--brandColor-primary-shade1);
-  border: 1px solid var(--brandColor-primary);
-}
-.SearchTool-submitBtn:hover, .SearchTool-submitBtn:active, .SearchTool-reserveBtn:hover, .SearchTool-reserveBtn:active {
-  background-color: var(--brandColor-primary);
-}
+
 .SearchTool-submitBtn {
   flex-grow: 0;
 }

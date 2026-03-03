@@ -25,8 +25,17 @@ window.addEventListener('load', handleLoad, false);
 
 let booksDatabase;
 const applicationState = {
-  selectedBooks: {}
+  selectedBooks: {},
+  studentDetails: {
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    studentId: ""
+  }
 };
+
+let searchPhase, registrationPhase, confirmationPhase;
 
 function handleLoad() {
   // Dummy data for a databse of books
@@ -34,10 +43,18 @@ function handleLoad() {
   // Add click listener to application buttons
   const searchButton = document.getElementById("SearchTool-submitBtn");
   const reserveBooksButton = document.getElementById("reserveBooksBtn");
-  // Add click handler to application buttons
+  const resultToResultsButton = document.getElementById("previousStep");
+  // Add click handler to search tool interactive elements
   searchButton.addEventListener('click', handleSearchButtonClick, false);
-  reserveBooksButton.addEventListener('click', handleFinalizeReservation, false);
-
+  reserveBooksButton.addEventListener('click', handleReserveBooksButtonClick, false);
+  // Retrieve references to all application phases
+  searchPhase = document.getElementById("ApplicationSearchPhase");
+  registrationPhase = document.getElementById("ApplicationRegistrationPhase");
+  confirmationPhase = document.getElementById("ApplicationConfirmationPhase");
+  // Enable first phase: Search phase
+  searchPhase.style.display = "block";
+  // Add click handlers to return to result button
+  resultToResultsButton.addEventListener('click', handleReturnToResultsButtonClick, false);
 }
 
 function handleSearchButtonClick(e) {
@@ -69,10 +86,23 @@ function handleCourseMaterialCardClick({checked, value}) {
     delete applicationState.selectedBooks[value];
 }
 
-function handleFinalizeReservation(e) {
+function handleReserveBooksButtonClick(e) {
   const selectedBooks = Object.keys(applicationState.selectedBooks);
-  if (selectedBooks.length == 0)
-    printMessage("Must select at least one book to make a reservation", "error");
+  if (selectedBooks.length == 0) {
+    printMessage("Must select at least one book to finalize a reservation.", "error");
+    return;
+  }
+  // Hide search phase
+  searchPhase.style.display = "none";
+  // display registration phase
+  registrationPhase.style.display = "block";
+}
+
+function handleReturnToResultsButtonClick(e) {
+  // Hide registration phase
+  registrationPhase.style.display = "none";
+  // Show search results phase
+  searchPhase.style.display = "block";
 }
 
 function renderSearchResults(results) {
@@ -99,7 +129,7 @@ function printMessage(message, type) {
   const parentDOMObject = document.getElementById('applicationMessage');
   if (type == "error") {
     parentDOMObject.classList.add('is--error');
-    parentDOMObject.scrollIntoView();
+    parentDOMObject.scrollIntoView({behavior: "smooth", block: "start"});
   } else {
     parentDOMObject.classList.remove('is--error');
   }
