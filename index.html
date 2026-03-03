@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quincy College Book Lending Platform</title>
+        <!-- 
+           Filename: index.html
+  
+           Author:   Javier S. Guerrero
+
+           Reserve Course Materials Page:
+
+           Date:     02/28/26
+           Quincy College Book Lending Platform
+        -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0" />
+        <link rel="stylesheet" href="styles.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <header class="NavigationHeader">
+            <div class="NavigationHeader-content">
+                <a href="index.html" class="NavigationHeader-logoLink">
+                    <div class="BrandLogo">
+                        <img src="media/quincy-college-logo.svg" alt="Quincy College Logo" class="BrandLogo-image">
+                        <h1 class="BrandLogo-title"><span class="BrandLogo-titleText">QUINCY COLLEGE</span><span class="BrandLogo-subtitle">BOOK LENDING</span></h1>
+                    </div>
+                </a>
+                <ul class="NavigationHeader-pages">
+                    <li><a href="index.html" class="NavigationHeader-link is-active">Reserve</a></li>
+                    <li><a href="donate.html" class="NavigationHeader-link">Donate</a></li>
+                    <li><a href="report.html" class="NavigationHeader-link">Report</a></li>
+                </ul>
+            </div>
+        </header>
+        <main id="content" class="Wrapper">
+            <article class="ArticleSection">
+                <h3 class="ArticleSection-title">Search Course Materials</h3>
+                    <div class="ArticleSection-description">
+                        <div>
+                            <p class="ArticleSection-paragraph">Use the tools below to search for course materials such as books, access codes and other materials. You can filter by course id and availability.</p>
+                            <form class="SearchTool" action="/search" method="GET">
+                                <input type="text" name="q" placeholder="Search for books">
+                                <button class="SearchTool-submitBtn" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div id="searchResults"></div>
+                        <div class="CourseMaterialCard">
+                            <div class="CourseMaterialCard-image">
+                                <img class="CourseMaterialCard-bookImage" />
+                            </div>
+                            <div class="CourseMaterialCard-description"></div>
+                            <div class="CourseMaterialCard-status"></div>
+                            <div class="CourseMaterialCard-additionalInfo"></div>
+                        </div>
+                    </div>
+            </article>
+            <article class="ArticleSection">
+                <h3 class="ArticleSection-title">Our Expertise</h3>
+                <p>We create beautiful and functional living spaces that improve your daily experience and overall quality of life.</p>
+                <ul class="AmenitiesList">
+                    <li><span class="material-symbols-outlined">balcony</span><span>Our skilled team delivers meticulous attention to detail and high-quality workmanship, ensuring lasting results</span></li>
+                    <li><span class="material-symbols-outlined">Shower</span><span>Water, sewer and hot water consumption of each unit is included.</span></li>
+                    <li><span class="material-symbols-outlined">pool</span><span>Large indoor heated pool open all year.</span></li>
+                    <li><span class="material-symbols-outlined">sauna</span><span>Indoor dry Sauna room with built-in shower.</span></li>
+                    <li><span class="material-symbols-outlined">fitness_center</span><span>Fully equipped fitness center with Yoga mats and mirrors.</span></li>
+                    <li><span class="material-symbols-outlined">outdoor_grill</span>Large enclosed patio with outdoor seating and a gass grill.</li>
+                    <li><span class="material-symbols-outlined">yard</span><span>Lawn and garden care is included.</span></li>
+                    <li><span class="material-symbols-outlined">deck</span><span>Large roof deck overlooking Quincy and Boston skyline.</span></li>
+                    <li><span class="material-symbols-outlined">train</span><span>Easy acess to public transportation.</span></li>
+                    <li><span class="material-symbols-outlined">savings</span><span>A Low monthly condominium fee.</span></li>
+                    <li><span class="material-symbols-outlined">location_city</span><span>Centrally located just a 15 minute walk to Downtown Quincy center.</span></li>
+                    <li><span class="material-symbols-outlined">landscape_2</span><span>Located just 2 miles from both Blue Mountains and the coast.</span></li>
+
+
+                </ul>
+            </article>
+        </main>
+        <footer class="SiteFooter">s
+            <ul class="SiteFooter-contactDetails">
+                <li>
+                    <address>
+                        <a href="https://maps.app.goo.gl/toJeX2611EUs4YfR7" target="_blank" class="SiteFooter-address">
+                            <span class="material-symbols-outlined">home_pin</span>
+                            1250 Hancock St, 3rd Floor, Library Quincy, MA 02169
+                        </a>
+                    </address>
+                </li>
+                <li><a href="/privacy" target="_blank" class="SiteFooter-privacy">Privacy Policy</a></li>
+                <li><span class="SiteFooter-attribution">&#169 Quincy College</span></li>
+            </ul>
+        </footer>
+    </body>
+</html>

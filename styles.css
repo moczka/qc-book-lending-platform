@@ -1,0 +1,399 @@
+/*
+    Filename: styles.css
+
+    Main core styles for Quincy College Book Lending Platform
+
+    Author:   Javier S. Guerrero
+    Date:     02/28/26
+*/
+
+/* Reset styles for modern browers (Recommendations from online resources) */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /* Removes default styles for button */
+  button, input[type="submit"], input[type="reset"] {
+  	background: none;
+  	color: inherit;
+  	border: none;
+  	padding: 0;
+  	font: inherit;
+  	cursor: pointer;
+  	outline: inherit;
+}
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
+
+/* Theme Pallette & Global Variables */
+:root {
+    /* Colors */
+    --primary-white: #FFF;
+    --primary-grey: #979CA6;
+    --primary-black: #000;
+    --brandColor-primary: #0A1326;
+    --brandColor-primary-shade1: #192640;
+    --brandColor-primary-shade2: #424A59;
+    --brandColor-secondary: #DECB3E;
+    --brandColor-secondary-trans: #DECB3EF0;
+    /* Breakpoints and Max Widths */
+    --max-pageWidth: 1024px;
+    --small-screen: 460px;
+    --medium-screen: 960px;
+    --large-screen: 1024px;
+    /* Font styles */
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+/* General Styles */
+html {
+  width: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 500;
+  color: var(--primary-black);
+}
+body {
+  color: var(--secondary-grey);
+}
+a {
+  color: var(--primary-blue);
+}
+
+/* Brand logo Styles */
+.BrandLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 1em; /* Controls size of everything */
+  width: 15em;
+  height: 6.5em;
+}
+.BrandLogo-image {
+  width: 5em;
+  height: 5em;
+  flex-shrink: 0;
+}
+.BrandLogo-title {
+  padding-left: 0.25em;
+  flex-shrink: 0;
+  font-size: 1.6em;
+  font-family: "Inter", sans-serif;
+  color: var(--primary-white);
+  text-align: center;
+}
+.BrandLogo-titleText {
+  display: block;
+  font-weight: 400;
+}
+.BrandLogo-subtitle {
+  display: block;
+  font-weight: 300;
+  border-top: 0.061em solid var(--primary-white);
+  padding-top: 0.25em;
+  font-size: 0.5em;
+  letter-spacing: 0.5em;
+}
+.BrandLogo.is-plain .BrandLogo-subtitle {
+  display: none;
+}
+.BrandLogo.is-plain > .BrandLogo-title {
+  top: 1em;
+}
+
+/* Navigation Banner Styles */
+.NavigationHeader {
+    position: relative;
+    padding: 8px 16px;
+    background-color: var(--brandColor-primary);
+}
+.NavigationHeader-content {
+    display: flex;
+    width: 100%;
+    max-width: var(--max-pageWidth);
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.NavigationHeader .BrandLogo {
+  font-size: 0.75em;
+}
+.NavigationHeader-logoLink {
+    text-decoration: none;
+}
+.NavigationHeader-pages {
+    position: static; /* Restores its normal document flow position */
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    list-style-type: none;
+}
+.NavigationHeader-pages > li {
+    flex-shrink: 0;
+    margin-right: 24px;
+}
+/* Interactive Elements in Header */
+.NavigationHeader-menuBtn > span {
+  color: --primary-white;
+}
+.NavigationHeader-link {
+    position: relative;
+    font-family: "Inter", sans-serif;
+    font-size: 1.1em;
+    color: var(--primary-white);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.NavigationHeader-link:active {
+    top: 2px;
+}
+.NavigationHeader-link:hover::after, .NavigationHeader-link.is-active::after {
+    display: block;
+    position: absolute;
+    bottom: -0.25em; /* Creates some bounciness as user clicks on links */
+    background-color: var(--brandColor-secondary);
+    content: "";
+    width: 100%;
+    height: 3px;
+}
+
+
+/* Content Wrapper */
+.Wrapper {
+  max-width: var(--max-pageWidth);
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/* Intro Hero */
+.IntroHero {
+  position: relative;
+  height: 31.25vw;
+  overflow: hidden;
+}
+.IntroHero-image {
+  width: 100%;
+  height: auto;
+}
+.IntroHero-title {
+  font-size: 1.7em;
+  color: var(--secondary-grey);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.IntroHero-content {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 16px;
+  text-align: center;
+}
+.IntroHero-list {
+  display: flex;
+  margin-top: 12px;
+  justify-content: center;
+  list-style: none;
+}
+.IntroHero-list > li {
+  position: relative;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding-right: 24px;
+}
+.IntroHero.is-centered > .IntroHero-content {
+  top: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Introduction Articles */
+.ArticleSection {
+  margin: 36px 0;
+}
+.ArticleSection-paragraph {
+  text-indent: 1em;
+  margin-bottom: 8px;
+}
+.ArticleSection-title, .Highlight-title {
+  font-size: 1.8em;
+  margin-bottom: 12px;
+}
+.ArticleSection-image, .Highlight-image {
+  position: relative;
+  height: auto;
+}
+.ArticleSection-description, .Highlight {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.ArticleSection-description > .ArticleSection-image, .Highlight > .Highlight-image {
+  width: 45%;
+  flex-shrink: 0;
+  margin-left: 24px;
+}
+.ArticleSection-description > .ArticleSection-image {
+  margin-right: 0;
+  margin-right: 24px;
+}
+.ArticleSection-image::after, .ArticleSection-image::before, .Highlight-image::after, .Highlight-image::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  z-index: -1;
+}
+.ArticleSection-image::before, .Highlight-image::before {
+  top: -5%;
+  right: -3%;
+  background-color: var(--secondary-lightblue);
+}
+.ArticleSection-image::after, .Highlight-image::after {
+  bottom: -5%;
+  left: -3%;
+  background-color: var(--primary-blue);
+}
+
+/* Visual highlights a figure with description text */
+.Highlight {
+  margin: 48px 0;
+  align-items: center;
+}
+.Highlight-description {
+  text-align: center;
+}
+.Highlight.is-reversed {
+  flex-flow: row-reverse;
+} 
+.Highlight.is-reversed > .Highlight-image {
+  margin-left: 0;
+  margin-right: 24px;
+}
+
+/* Amenities */
+.AmenitiesList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+.AmenitiesList > li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 50%;
+  margin-bottom: 8px;
+}
+.AmenitiesList > li > .material-symbols-outlined {
+  font-size: 2.6em;
+  flex-shrink: 0;
+  padding-right: 8px;
+}
+
+
+/* Course Material Search Tool */
+.SearchTool {
+  display: flex;
+}
+.SearchTool-submitBtn {
+  padding: 12px;
+  color: var(--primary-white);
+  background-color: var(--brandColor-primary-shade1);
+  border: 1px solid var(--brandColor-primary);
+}
+.SearchTool-submitBtn:hover, .SearchTool-submitBtn:active {
+  background-color: var(--brandColor-primary);
+}
+
+/* Course Material Tile */
+.CourseMaterialCard {
+  display: flex;
+}
+
+/* Footer styles */
+.SiteFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 125px;
+  background-color: var(--brandColor-primary-shade1);
+}
+.SiteFooter > .BrandLogo {
+  font-size: 1.2rem; /* Reduce the size of logo */
+  margin: 0 auto;
+  margin-top: 36px;
+}
+.SiteFooter-contactDetails {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 12px 8px;
+  background-color: var(--brandColor-primary);
+  color: var(--primary-white);
+}
+.SiteFooter-contactDetails a {
+  text-decoration: none;
+  color: var(--primary-white);
+}
+.SiteFooter-contactDetails a:hover {
+  color: var(--brandColor-secondary);
+}
+.SiteFooter-contactDetails a:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+.SiteFooter-contactDetails > li {
+  position: relative;
+  text-align: center;
+  padding-right: 24px;
+}
+.SiteFooter-address {
+  font-style: normal;
+}
+.SiteFooter-phone > .material-symbols-outlined, .SiteFooter-address > .material-symbols-outlined {
+  font-size: 1.3em;
+  vertical-align: middle;
+}
+
+
+
+
+  /*
+  Font Family example:
+
+  // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.inter-<uniquifier> {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}s
+
+  */
+
