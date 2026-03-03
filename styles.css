@@ -321,9 +321,6 @@ a {
   border: none;
   padding: 0;
 }
-.SearchTool-reserveBtn {
-  display: none;
-}
 .SearchTool-results:not(:empty) + .SearchTool-reserveBtn {
   display: flex;
 }
@@ -344,6 +341,9 @@ a {
 }
 .SearchTool-submitBtn {
   flex-grow: 0;
+}
+.SearchTool-reserveBtn {
+  display: none;
 }
 
 /* Course Material Tile */
