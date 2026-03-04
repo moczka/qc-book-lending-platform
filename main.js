@@ -45,6 +45,8 @@ function handleSearchButtonClick(e) {
   e.preventDefault();
   // clear any previous messages
   printMessage("");
+  // clear any previous selections
+  applicationState.selectedBooks = {};
   // retrieve books by search query
   const searchQuery = document.getElementById('SearchTool-inputField')?.value?.toLowerCase() || "";
   // do nothing when no search query has been typed
