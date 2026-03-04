@@ -3,7 +3,7 @@
 
   Author:   Javier S. Guerrero
   Stubbed Database
-  
+
   Date:     02/28/26
   Quincy College Book Lending Platform
 
@@ -53,6 +53,12 @@ window.database = {
         });
     },
     updateBookRecord(recordId, newValues) {
-        return 0;
+        
+    },
+    addReservation(studentId, bookId) {
+
+    },
+    removeReservation(studentId, bookId) {
+        
     }
 };
