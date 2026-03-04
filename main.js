@@ -115,7 +115,7 @@ function processOrder({firstName, lastName, studentId, phone, email, selectedBoo
         status: "fail",
         message: "You have received your maximum number of reservation for the semester. Please return any pending books."
       }
-    } else if (Object.keys(selectedBooks).length > MAX_NUM_BOOKS_PER_STUDENT) {
+    } else if (activeReservations.length + Object.keys(selectedBooks).length > MAX_NUM_BOOKS_PER_STUDENT) {
       return {
         status: "fail",
         message: `You can only select up to ${MAX_NUM_BOOKS_PER_STUDENT - activeReservations.length} book(s). Return to book selection and try again.`
