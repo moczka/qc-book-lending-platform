@@ -106,7 +106,20 @@ function handleRegistrationFormSubmit(e) {
   }
 }
 
-function processOrder() {
+function processOrder({firstName, lastName, studentId, phone, email, selectedBooks}) {
+    // retrieve active reservations
+    const activeReservations = database.retrieveStudentReservations(studentId);
+    // Prevent additional reservations if limit has been exceeded.
+    if (activeReservations.length > 4) {
+      return {
+        status: "fail",
+        message: "You have received your maximum number of reservation for the semester. Please return any pending books."
+      }
+    }
+    // Reserve books
+    Object.keys(selectedBooks).forEach(bookId => {
+      database.addReservation({studentId, firstName, lastName, email, phone, id: bookId});
+    });
     return {
       status: "success"
     };
@@ -137,6 +150,16 @@ function renderOrderConfirmation() {
     registrationPhase.style.display = "none";
     // show confirmation phase
     confirmationPhase.style.display = "block";
+    // Print out reserved books
+    const list = document.getElementById('ConfirmationPhase-details');
+    Object.keys(applicationState.selectedBooks).forEach(selectedBookId => {
+        const bookDescription = document.createElement('p');
+        const book = database.retrieveBookById(selectedBookId)[0];
+        bookDescription.innerHTML = `
+            ${book.title}
+        `;
+        list.appendChild(bookDescription);
+    });
 }
 
 // Prints application wide messages.

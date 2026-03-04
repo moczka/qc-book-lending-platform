@@ -79,6 +79,8 @@ a {
 
 /* Brand logo Styles */
 .BrandLogo {
+  position: relative;
+  left: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -357,6 +359,10 @@ a {
 }
 .RegistrationForm-field > label {
   font-weight: 500;
+}
+
+.ConfirmatonPhase-detailsLabel {
+  margin: 16px 0;
 }
 
 /* RepositoryManagementTool */
