@@ -61,7 +61,7 @@ function handleSearchButtonClick(e) {
   e.preventDefault();
   // clear any previous messages
   printMessage("");
-  // retrieve search query
+  // retrieve books by search query
   const searchQuery = document.getElementById('SearchTool-inputField')?.value?.toLowerCase() || "";
   // do nothing when no search query has been typed
   if (searchQuery == "") return;
