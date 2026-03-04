@@ -66,15 +66,7 @@ function handleSearchButtonClick(e) {
   // do nothing when no search query has been typed
   if (searchQuery == "") return;
   // Clear previous search results
-  const searchResults = [];
-  booksDatabase.forEach((record, recordIndex) => {
-    // Compare record field values with query prompt to find matches
-    const recordValues = Object.values(record);
-    const recordMatches = recordValues.findIndex(value => String(value).toLowerCase().includes(searchQuery));
-    if (recordMatches != -1) {
-      searchResults.push(recordIndex);
-    }
-  });
+  const searchResults = database.searchForBooks(searchQuery);
   // Update search results
   renderSearchResults(searchResults);
 }
@@ -146,10 +138,10 @@ function renderSearchResults(results) {
     return;
   }
   // Clear any previous 
-  const courseMaterialCards = results.map((recordIndex) => {
+  const courseMaterialCards = results.map((result) => {
     const resultDOMObject = document.createElement('div');
     // Create selectable cards for each course material in the search result
-    resultDOMObject.innerHTML = CourseMaterialCard(booksDatabase[recordIndex], recordIndex);
+    resultDOMObject.innerHTML = CourseMaterialCard(result);
     return resultDOMObject;
   });
   searchResultsDOMHolder.replaceChildren(...courseMaterialCards);
@@ -175,12 +167,12 @@ function printMessage(message, type) {
   parentDOMObject.innerHTML = `${message}`;
 }
 
-function CourseMaterialCard({title, edition, author, quantity, reserved, course_id, course_name, isbn_13}, recordIndex) {
+function CourseMaterialCard({id, title, edition, author, quantity, reserved, course_id, course_name, isbn_13}) {
   const isOutOfStock = quantity == reserved;
   const bookStatus = isOutOfStock ? "Out of Stock" : `${reserved} out of ${quantity}`;
   return (`
       <div class="CourseMaterialCard ${isOutOfStock ? "is-outOfStock" : "" }">
-          <input ${applicationState.selectedBooks[recordIndex] ? "checked" : ""} class="CourseMaterialCard-input" type="checkbox" ${isOutOfStock? "disabled" : ""} id="${isbn_13}" onclick="handleCourseMaterialCardClick(this)" name="selection" value="${recordIndex}">
+          <input ${applicationState.selectedBooks[id] ? "checked" : ""} class="CourseMaterialCard-input" type="checkbox" ${isOutOfStock? "disabled" : ""} id="${isbn_13}" onclick="handleCourseMaterialCardClick(this)" name="selection" value="${id}">
           <label for="${isbn_13}" class="CourseMaterialCard-wrapper">
               <div class="CourseMaterialCard-image">
                   <img class="CourseMaterialCard-bookImage" src="media/book-thumbnail-placeholder.jpg"/>
