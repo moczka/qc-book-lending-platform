@@ -20,7 +20,7 @@ const applicationState = {
     studentId: ""
   }
 };
-
+const MAX_NUM_BOOKS_PER_STUDENT = 4;
 let searchPhase, registrationPhase, confirmationPhase;
 
 function handleLoad() {
@@ -110,10 +110,15 @@ function processOrder({firstName, lastName, studentId, phone, email, selectedBoo
     // retrieve active reservations
     const activeReservations = database.retrieveStudentReservations(studentId);
     // Prevent additional reservations if limit has been exceeded.
-    if (activeReservations.length > 4) {
+    if (activeReservations.length > MAX_NUM_BOOKS_PER_STUDENT) {
       return {
         status: "fail",
         message: "You have received your maximum number of reservation for the semester. Please return any pending books."
+      }
+    } else if (Object.keys(selectedBooks).length > MAX_NUM_BOOKS_PER_STUDENT) {
+      return {
+        status: "fail",
+        message: `You can only select up to ${MAX_NUM_BOOKS_PER_STUDENT - activeReservations.length} book(s). Return to book selection and try again.`
       }
     }
     // Reserve books
