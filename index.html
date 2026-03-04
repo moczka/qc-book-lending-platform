@@ -39,24 +39,58 @@
         </header>
         <main id="content" class="Wrapper">
             <article class="ArticleSection">
-                <h3 class="ArticleSection-title">Search Course Materials</h3>
-                <p class="ArticleSection-paragraph">Use the tools below to search for course materials such as books, access codes and other materials. You can filter by course id and availability.</p>
                 <div class="ApplicationPhase" id="ApplicationSearchPhase">
+                    <h3 class="ArticleSection-title">Search Course Materials</h3>
+                    <p class="ArticleSection-paragraph">Find course materials such as books, access codes and other materials using the search bar below. You can search by book name, author, ISBN-13 or 10, course name, course id and course name. Select from the search results the books you would like to reserve.</p>
                     <form class="SearchTool">
                         <input class="SearchTool-inputField" id="SearchTool-inputField" required type="text" placeholder="Search for books">
                         <button id="SearchTool-submitBtn" class="ApplicationButton SearchTool-submitBtn"><span class="material-symbols-outlined">search</span>Search</button>
                     </form>
-                    <p id="applicationMessage" class="ApplicationWideMessage"></p>
                     <fieldset class="SearchTool-results" id="searchResults"></fieldset>
                     <button id="reserveBooksBtn" class="ApplicationButton SearchTool-reserveBtn">Reserve Books</button>
                 </div>
                 <div class="ApplicationPhase" id="ApplicationRegistrationPhase">
-                    <button id="previousStep" class="ApplicationButton"><span class="material-symbols-outlined">arrow_back</span>Return to Results</button>
+                    <h3 class="ArticleSection-title">Register</h3>
+                    <p class="ArticleSection-paragraph">To reserve books, you must provide basic contact details and accept our terms of use. Please complete the form below to finalize your order.</p>
+                    <button id="previousStep" class="ApplicationButton ApplicationButton--secondary"><span class="material-symbols-outlined">arrow_back</span>Book Selection</button>
+                    <form class="RegistrationForm" id="registrationForm" onsubmit="handleRegistrationFormSubmit(event)">
+                        <div class="RegistrationForm-field">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="RegistrationForm-field">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="RegistrationForm-field">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="RegistrationForm-field">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div class="RegistrationForm-field">
+                        <div class="RegistrationForm-field">
+                            <label for="studentId">Student ID:</label>
+                            <input type="text" id="studentId" name="studentId" required>
+                        </div>
+                        <button class="ApplicationButton" type="submit">Submit</button>
+                    </form>
                 </div>
                 <div class="ApplicationPhase" id="ApplicationConfirmationPhase">
-                    <button id="previousStep" class="ApplicationButton">Search For More</button>
-                </div>
+                    <h3 class="ArticleSection-title">Order Confirmed <span class="material-symbols-outlined">check_circle</span></h3>
+                    <div class="ArticleSection-description">
+                        <div>
+                            <p class="ArticleSection-paragraph">Please have your <strong>student ID with you</strong> when picking up your books. Books not picked up within 24 hours will become available for other students to reserve.</p>
+                            <p class="ArticleSection-paragraph">Proceed to pick up your books at the Quincy College library located on the third floor and check-in with one of our librarians, thank you.</p>
+                            <span class="ConfirmatonPhase-detailsLabel">Details:</span>
+                            <ul class="ConfirmatonPhase-details"></ul>
+                        </div>
+                        <img class="ArticleSection-image" src="media/quincy-college-library.jpg" alt="Quincy College Library">
+                    </div>
 
+                </div>
+                <p id="applicationMessage" class="ApplicationWideMessage"></p>
             </article>
         </main>
         <footer class="SiteFooter">s
@@ -65,7 +99,7 @@
                     <address>
                         <a href="https://maps.app.goo.gl/toJeX2611EUs4YfR7" target="_blank" class="SiteFooter-address">
                             <span class="material-symbols-outlined">home_pin</span>
-                            1250 Hancock St, 3rd Floor, Library Quincy, MA 02169
+                            1250 Hancock St, 3rd Floor Library, Quincy, MA 02169
                         </a>
                     </address>
                 </li>

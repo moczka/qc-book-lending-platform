@@ -89,7 +89,7 @@ function handleCourseMaterialCardClick({checked, value}) {
 function handleReserveBooksButtonClick(e) {
   const selectedBooks = Object.keys(applicationState.selectedBooks);
   if (selectedBooks.length == 0) {
-    printMessage("Must select at least one book to finalize a reservation.", "error");
+    printMessage("Must select at least one book.", "error");
     return;
   }
   // Hide search phase
@@ -104,6 +104,30 @@ function handleReturnToResultsButtonClick(e) {
   // Show search results phase
   searchPhase.style.display = "block";
 }
+
+function handleRegistrationFormSubmit(e) {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  // Update application state with student details
+  data.forEach((value, field) => {
+    applicationState.studentDetails[field] = value;
+  });
+  // Submit order for books
+  const result = processOrder({...applicationState.studentDetails, selectedBooks: applicationState.selectedBooks});
+  // Print failure message if order failed
+  if (result.status == "fail") {
+    printMessage(result.message, "error")
+  } else {
+    renderOrderConfirmation();
+  }
+}
+
+function processOrder() {
+    return {
+      status: "success"
+    };
+}
+
 
 function renderSearchResults(results) {
   const searchResultsDOMHolder = document.getElementById("searchResults");
@@ -120,10 +144,17 @@ function renderSearchResults(results) {
     resultDOMObject.innerHTML = CourseMaterialCard(booksDatabase[recordIndex], recordIndex);
     return resultDOMObject;
   });
-
   searchResultsDOMHolder.replaceChildren(...courseMaterialCards);
   console.log("Search concluded");
 }
+
+function renderOrderConfirmation() {
+    // Hide registration phase
+    registrationPhase.style.display = "none";
+    // show confirmation phase
+    confirmationPhase.style.display = "block";
+}
+
 // Prints application wide messages.
 function printMessage(message, type) {
   const parentDOMObject = document.getElementById('applicationMessage');
@@ -141,7 +172,7 @@ function CourseMaterialCard({title, edition, author, quantity, reserved, course_
   const bookStatus = isOutOfStock ? "Out of Stock" : `${reserved} out of ${quantity}`;
   return (`
       <div class="CourseMaterialCard ${isOutOfStock ? "is-outOfStock" : "" }">
-          <input class="CourseMaterialCard-input" type="checkbox" ${isOutOfStock? "disabled" : ""} id="${isbn_13}" onclick="handleCourseMaterialCardClick(this)" name="selection" value="${recordIndex}">
+          <input ${applicationState.selectedBooks[recordIndex] ? "checked" : ""} class="CourseMaterialCard-input" type="checkbox" ${isOutOfStock? "disabled" : ""} id="${isbn_13}" onclick="handleCourseMaterialCardClick(this)" name="selection" value="${recordIndex}">
           <label for="${isbn_13}" class="CourseMaterialCard-wrapper">
               <div class="CourseMaterialCard-image">
                   <img class="CourseMaterialCard-bookImage" src="media/book-thumbnail-placeholder.jpg"/>
