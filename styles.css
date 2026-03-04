@@ -359,6 +359,24 @@ a {
   font-weight: 500;
 }
 
+/* RepositoryManagementTool */
+.RepositoryManagementTool-separator {
+  position: static;
+  text-align: center;
+  margin: 24px 0;
+}
+.RepositoryManagementTool-separatorLabel {
+  background-color: var(--primary-white);
+  padding: 0 8px;
+  position: relative;
+  top: -1rem;
+}
+
+.RepositoryManagementTool-addBtn {
+  display: flex;
+  justify-content: center;
+}
+
 /* Footer styles */
 .SiteFooter {
   display: flex;

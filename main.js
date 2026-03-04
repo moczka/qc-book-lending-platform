@@ -80,6 +80,8 @@ function handleSearchButtonClick(e) {
 }
 
 function handleCourseMaterialCardClick({checked, value}) {
+  // clear any previous messages
+  printMessage("");
   if (checked)
     applicationState.selectedBooks[value] = true;
   else
@@ -87,6 +89,8 @@ function handleCourseMaterialCardClick({checked, value}) {
 }
 
 function handleReserveBooksButtonClick(e) {
+  // clear any previous messages
+  printMessage("");
   const selectedBooks = Object.keys(applicationState.selectedBooks);
   if (selectedBooks.length == 0) {
     printMessage("Must select at least one book.", "error");
@@ -99,6 +103,8 @@ function handleReserveBooksButtonClick(e) {
 }
 
 function handleReturnToResultsButtonClick(e) {
+  // clear any previous messages
+  printMessage("");
   // Hide registration phase
   registrationPhase.style.display = "none";
   // Show search results phase
@@ -106,6 +112,8 @@ function handleReturnToResultsButtonClick(e) {
 }
 
 function handleRegistrationFormSubmit(e) {
+  // clear any previous messages
+  printMessage("");
   e.preventDefault();
   const data = new FormData(e.target);
   // Update application state with student details
