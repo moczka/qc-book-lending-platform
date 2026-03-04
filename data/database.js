@@ -87,7 +87,7 @@ window.database = {
         if (studentId in reservations) {
             reservations[studentId].books.push({id});
             // Update book status
-            this.retrieveBookById(id).reserved++;
+            this.retrieveBookById(id)[0].reserved++;
         } else {
             // Add new reservation for new student
             reservations[studentId] = {
@@ -98,20 +98,25 @@ window.database = {
                 books: [{id}]
             };
             // Update book status
-            this.retrieveBookById(id).reserved++;
+            this.retrieveBookById(id)[0].reserved++;
         }
+        localStorage.setItem("bookRecords", JSON.stringify(bookRecords));
         localStorage.setItem("reservations", JSON.stringify(reservations));
     },
     // Removes a book from the student's reserved books
     removeReservation(studentId, bookId) {
         if (studentId in reservations) {
             const bookIndex = reservations[studentId].books.findIndex(book => book.id == bookId);
-            if (bookIndex != -1)
+            if (bookIndex != -1) {
+                // Update book status
+                this.retrieveBookById(id)[0].reserved--;
                 reservations[studentId].books.splice(bookIndex, 1);
+            }
             else
                 return false;
             // Update local storage so changes persist
             localStorage.setItem("reservations", JSON.stringify(reservations));
+            localStorage.setItem("bookRecords", JSON.stringify(bookRecords));
             return true;
         }
         return false;
