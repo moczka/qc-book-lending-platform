@@ -387,7 +387,7 @@ a {
 .SiteFooter {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 125px;
   background-color: var(--brandColor-primary-shade1);
 }
