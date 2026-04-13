@@ -1,0 +1,98 @@
+/* Brand logo Styles */
+.BrandLogo {
+  position: relative;
+  left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 1em; /* Controls size of everything */
+  width: 15em;
+  height: 6.5em;
+}
+.BrandLogo-image {
+  width: 5em;
+  height: 5em;
+  flex-shrink: 0;
+}
+.BrandLogo-title {
+  padding-left: 0.25em;
+  flex-shrink: 0;
+  font-size: 1.6em;
+  font-family: "Inter", sans-serif;
+  color: var(--primary-white);
+  text-align: center;
+}
+.BrandLogo-titleText {
+  display: block;
+  font-weight: 400;
+}
+.BrandLogo-subtitle {
+  display: block;
+  font-weight: 300;
+  border-top: 0.061em solid var(--primary-white);
+  padding-top: 0.25em;
+  font-size: 0.5em;
+  letter-spacing: 0.5em;
+}
+.BrandLogo.is-plain .BrandLogo-subtitle {
+  display: none;
+}
+.BrandLogo.is-plain > .BrandLogo-title {
+  top: 1em;
+}
+
+/* Navigation Banner Styles */
+.NavigationHeader {
+    position: relative;
+    padding: 8px 16px;
+    background-color: var(--brandColor-primary);
+}
+.NavigationHeader-content {
+    display: flex;
+    width: 100%;
+    max-width: var(--max-pageWidth);
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.NavigationHeader .BrandLogo {
+  font-size: 0.75em;
+}
+.NavigationHeader-logoLink {
+    text-decoration: none;
+}
+.NavigationHeader-pages {
+    position: static; /* Restores its normal document flow position */
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    list-style-type: none;
+}
+.NavigationHeader-pages > li {
+    flex-shrink: 0;
+    margin-right: 24px;
+}
+/* Interactive Elements in Header */
+.NavigationHeader-menuBtn > span {
+  color: --primary-white;
+}
+.NavigationHeader-link {
+    position: relative;
+    font-family: "Inter", sans-serif;
+    font-size: 1.1em;
+    color: var(--primary-white);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.NavigationHeader-link:active {
+    top: 2px;
+}
+.NavigationHeader-link:hover::after, .NavigationHeader-link.is-active::after {
+    display: block;
+    position: absolute;
+    bottom: -0.25em; /* Creates some bounciness as user clicks on links */
+    background-color: var(--brandColor-secondary);
+    content: "";
+    width: 100%;
+    height: 3px;
+}

@@ -1,22 +1,13 @@
-import logo from './media/quincy-college-logo.svg';
+import { useState } from 'react';
+import { SEARCH_MODE } from './constants';
+import NavigationHeader from './NavigationHeader';
 import './App.css';
 
 function App() {
+  const [mode, setMode] = useState(SEARCH_MODE);
+
   return (
-    <header className="NavigationHeader">
-        <div className="NavigationHeader-content">
-            <a href="index.html" className="NavigationHeader-logoLink">
-                <div className="BrandLogo">
-                    <img src={logo} alt="Quincy College Logo" className="BrandLogo-image" />
-                    <h1 className="BrandLogo-title"><span className="BrandLogo-titleText">QUINCY COLLEGE</span><span className="BrandLogo-subtitle">BOOK LENDING</span></h1>
-                </div>
-            </a>
-            <ul className="NavigationHeader-pages">
-                <li><a href="index.html" className="NavigationHeader-link is-active">Search</a></li>
-                <li><a href="manage.html" className="NavigationHeader-link">Manage</a></li>
-            </ul>
-        </div>
-    </header>
+    <NavigationHeader setMode={(mode) => {setMode(mode)}} activeMode={mode}/>
   );
 }
 
