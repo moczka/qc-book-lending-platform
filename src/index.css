@@ -1,0 +1,78 @@
+/*
+    Filename: styles.css
+
+    Main core styles for Quincy College Book Lending Platform
+
+    Author:   Javier S. Guerrero
+    Date:     02/28/26
+*/
+
+/* Reset styles for modern browers (Recommendations from online resources) */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /* Removes default styles for button */
+  button, input[type="submit"], input[type="reset"] {
+  	background: none;
+  	color: inherit;
+  	border: none;
+  	padding: 0;
+  	font: inherit;
+  	cursor: pointer;
+  	outline: inherit;
+}
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
+
+/* Theme Pallette & Global Variables */
+:root {
+    /* Colors */
+    --primary-white: #FFF;
+    --primary-grey: #979CA6;
+    --primary-black: #000;
+    --brandColor-primary: #0A1326;
+    --brandColor-primary-shade1: #192640;
+    --brandColor-primary-shade2: #424A59;
+    --brandColor-secondary: #DECB3E;
+    --brandColor-secondary-trans: #DECB3EF0;
+    /* Breakpoints and Max Widths */
+    --max-pageWidth: 1024px;
+    --small-screen: 460px;
+    --medium-screen: 960px;
+    --large-screen: 1024px;
+    /* Font styles */
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+/* General Styles */
+html {
+  width: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 500;
+  color: var(--primary-black);
+}
+body {
+  color: var(--secondary-grey);
+}
+a {
+  color: var(--primary-blue);
+}
