@@ -1,4 +1,4 @@
-import logo from '../media/quincy-college-library.jpg';
+import logo from './media/quincy-college-logo.svg';
 import './App.css';
 
 function App() {
