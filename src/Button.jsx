@@ -9,7 +9,7 @@ import './Button.css';
 
 function Button({onClick, isDisabled = false, isSecondary = false, children}) {
     return (
-        <button class={`ApplicationButton ${isSecondary && 'ApplicationButton--secondary'}`} onClick={onClick} disabled={isDisabled}>
+        <button className={`ApplicationButton ${isSecondary && 'ApplicationButton--secondary'}`} onClick={onClick} disabled={isDisabled}>
             {children}
         </button>
     );

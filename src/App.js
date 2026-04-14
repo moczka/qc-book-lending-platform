@@ -5,15 +5,29 @@
   Core Application that includes the search and management tools
 
 */
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useCallback } from 'react';
 import { SEARCH_MODE, SEARCH_PHASE, REGISTRATION_PHASE, CONFIRMATION_PHASE} from './constants';
 import NavigationHeader from './NavigationHeader';
 import SearchPhase from './SearchPhase';
+import RegistrationPhase from './RegistrationPhase';
+import ConfirmationPhase from './ConfirmationPhase';
 import './App.css';
 
 function App() {
   const [mode, setMode] = useState(SEARCH_MODE);
   const [activePhase, setActivePhase] = useState(SEARCH_PHASE);
+  const [selectedBooks, setSelectedBooks] = useState({});
+
+  const updateBookSelection = useCallback((bookId, removeItem = false) => {
+    setSelectedBooks(prev => {
+      const updatedBookSelection = {...prev};
+      if (removeItem)
+        delete updatedBookSelection[bookId];
+      else
+        updatedBookSelection[bookId] = true;
+      return updatedBookSelection;
+    })
+  }, []);
 
   return (
       <Fragment>
@@ -21,7 +35,13 @@ function App() {
         {mode === SEARCH_MODE && (
           <div className="Wrapper">
             {activePhase === SEARCH_PHASE && (
-              <SearchPhase />
+              <SearchPhase selectedBooks={selectedBooks} onBookSelection={updateBookSelection} />
+            )}
+            {activePhase === REGISTRATION_PHASE && (
+              <RegistrationPhase />
+            )}
+            {activePhase === CONFIRMATION_PHASE && (
+              <ConfirmationPhase />
             )}
           </div>
         )}

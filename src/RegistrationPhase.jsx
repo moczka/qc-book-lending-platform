@@ -7,7 +7,7 @@
 */
 import Button from './Button';
 
-function ConfirmationPhase() {
+function RegistrationPhase() {
     return (
         <div className="ApplicationPhase" id="ApplicationRegistrationPhase">
             <h3 className="ArticleSection-title">Register</h3>
@@ -40,4 +40,4 @@ function ConfirmationPhase() {
     );
 }
 
-export default ConfirmationPhase;
+export default RegistrationPhase;

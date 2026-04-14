@@ -38,7 +38,7 @@ function handleLoad() {
     reservations = JSON.parse(localStorage.getItem("reservations"));
 }
 
-window.database = {
+export default {
     // returns books matching the search query.
     searchForBooks(searchQuery) {
         // Exit out early when no query has been provided.
@@ -109,7 +109,7 @@ window.database = {
             const bookIndex = reservations[studentId].books.findIndex(book => book.id == bookId);
             if (bookIndex != -1) {
                 // Update book status
-                this.retrieveBookById(id)[0].reserved--;
+                this.retrieveBookById(bookId)[0].reserved--;
                 reservations[studentId].books.splice(bookIndex, 1);
             }
             else
