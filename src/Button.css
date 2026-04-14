@@ -1,0 +1,30 @@
+/* 
+  Author:   Javier S. Guerrero
+  Date:     02/28/26
+
+  Styles for re-usable button.
+  
+*/
+
+.ApplicationButton {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  color: var(--primary-white);
+  background-color: var(--brandColor-primary-shade1);
+  border: 1px solid var(--brandColor-primary);
+}
+.ApplicationButton:active, .ApplicationButton:hover {
+  background-color: var(--brandColor-primary);
+}
+.ApplicationButton--secondary {
+  background-color: initial;
+  color: var(--brandColor-primary-shade1);
+}
+.ApplicationButton--secondary:active, .ApplicationButton--secondary:hover {
+  color: var(--brandColor-primary);
+  background-color: initial;
+}

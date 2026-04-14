@@ -1,48 +1,10 @@
-/* Brand logo Styles */
-.BrandLogo {
-  position: relative;
-  left: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  font-size: 1em; /* Controls size of everything */
-  width: 15em;
-  height: 6.5em;
-}
-.BrandLogo-image {
-  width: 5em;
-  height: 5em;
-  flex-shrink: 0;
-}
-.BrandLogo-title {
-  padding-left: 0.25em;
-  flex-shrink: 0;
-  font-size: 1.6em;
-  font-family: "Inter", sans-serif;
-  color: var(--primary-white);
-  text-align: center;
-}
-.BrandLogo-titleText {
-  display: block;
-  font-weight: 400;
-}
-.BrandLogo-subtitle {
-  display: block;
-  font-weight: 300;
-  border-top: 0.061em solid var(--primary-white);
-  padding-top: 0.25em;
-  font-size: 0.5em;
-  letter-spacing: 0.5em;
-}
-.BrandLogo.is-plain .BrandLogo-subtitle {
-  display: none;
-}
-.BrandLogo.is-plain > .BrandLogo-title {
-  top: 1em;
-}
+/* 
+  Author:   Javier S. Guerrero
+  Date:     02/28/26
 
-/* Navigation Banner Styles */
+  Navigation header styles
+  
+*/
 .NavigationHeader {
     position: relative;
     padding: 8px 16px;
@@ -95,4 +57,48 @@
     content: "";
     width: 100%;
     height: 3px;
+}
+
+/* Brand logo Styles */
+.BrandLogo {
+  position: relative;
+  left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 1em; /* Controls size of everything */
+  width: 15em;
+  height: 6.5em;
+}
+.BrandLogo-image {
+  width: 5em;
+  height: 5em;
+  flex-shrink: 0;
+}
+.BrandLogo-title {
+  padding-left: 0.25em;
+  flex-shrink: 0;
+  font-size: 1.6em;
+  font-family: "Inter", sans-serif;
+  color: var(--primary-white);
+  text-align: center;
+}
+.BrandLogo-titleText {
+  display: block;
+  font-weight: 400;
+}
+.BrandLogo-subtitle {
+  display: block;
+  font-weight: 300;
+  border-top: 0.061em solid var(--primary-white);
+  padding-top: 0.25em;
+  font-size: 0.5em;
+  letter-spacing: 0.5em;
+}
+.BrandLogo.is-plain .BrandLogo-subtitle {
+  display: none;
+}
+.BrandLogo.is-plain > .BrandLogo-title {
+  top: 1em;
 }

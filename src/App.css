@@ -1,10 +1,17 @@
+/* 
+  Author:   Javier S. Guerrero
+  Date:     02/28/26
+
+  Core Application styles
+  
+*/
+
 /* Content Wrapper */
 .Wrapper {
   max-width: var(--max-pageWidth);
   padding: 0 16px;
   margin: 0 auto;
 }
-
 
 /* Introduction Articles */
 .ArticleSection {

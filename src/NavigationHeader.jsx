@@ -1,3 +1,11 @@
+/* 
+  Author:   Javier S. Guerrero
+  Date:     02/28/26
+
+  The navigation header at the top of the application. 
+  Used by users to switch between application flows.
+  
+*/
 import { useCallback } from 'react';
 import {SEARCH_MODE, MANAGE_MODE} from "./constants";
 import logo from './media/quincy-college-logo.svg';
