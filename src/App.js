@@ -35,10 +35,10 @@ function App() {
         {mode === SEARCH_MODE && (
           <div className="Wrapper">
             {activePhase === SEARCH_PHASE && (
-              <SearchPhase selectedBooks={selectedBooks} onBookSelection={updateBookSelection} />
+              <SearchPhase onComplete={setActivePhase} selectedBooks={selectedBooks} onBookSelection={updateBookSelection} />
             )}
             {activePhase === REGISTRATION_PHASE && (
-              <RegistrationPhase />
+              <RegistrationPhase onComplete={setActivePhase}/>
             )}
             {activePhase === CONFIRMATION_PHASE && (
               <ConfirmationPhase />

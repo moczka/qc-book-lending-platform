@@ -7,10 +7,12 @@
 */
 import { useState } from 'react';
 import database from './data/database';
+import { REGISTRATION_PHASE } from './constants';
 import CourseMaterialCard from './CourseMaterialCard';
+
 import Button from './Button';
 
-function SearchPhase({selectedBooks, onBookSelection}) {
+function SearchPhase({selectedBooks, onBookSelection, onComplete}) {
 
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
@@ -56,8 +58,10 @@ function SearchPhase({selectedBooks, onBookSelection}) {
                         );
                     })}
                 </fieldset>
-                {Object.keys(selectedBooks).length > 0 && (
-                    <Button>Reserve Books</Button>
+                {searchResults.length > 0 && (
+                    <Button onClick={() => {
+                        onComplete(REGISTRATION_PHASE);
+                    }}>Reserve Books</Button>
                 )}
             </div>
         </div>
